@@ -1,0 +1,78 @@
+background(250, 250, 250);
+
+var length = 69;
+var topAngle = 1.11;
+var bottomAngle = 1.09;
+var centerX = 170;
+var centerY = 144;
+
+var frontTopX = centerX + length / 2;
+var frontTopY = centerY - length / 2.6;
+var frontRightX = frontTopX + length;
+var frontRightY = frontTopY + length * 1.5;
+var frontLeftX = frontTopX - length;
+var frontLeftY = frontTopY + length * 1.5;
+var topLeftCornerX = frontTopX - length * 1.7;
+var topLeftCornerY = frontTopY * topAngle;
+var topRightCornerX = frontTopX + length * 1.7;
+var topRightCornerY = frontTopY * topAngle;
+var topCenterY = frontTopY - length * 1.1;
+var bottomCenterY = frontTopY + length * 2.9;
+var bottomLeftCornerY = frontLeftY * bottomAngle;
+var bottomRightCornerY = frontRightY * bottomAngle;
+
+fill(255, 255, 255);
+
+//main face
+triangle(frontTopX, frontTopY, frontLeftX, frontLeftY, frontRightX, frontRightY);
+
+//left face
+triangle(frontTopX, frontTopY, frontLeftX, frontLeftY, topLeftCornerX, topLeftCornerY);
+
+//right face
+triangle(frontTopX, frontTopY, frontRightX, frontRightY, topRightCornerX, topRightCornerY);
+
+//top right face
+triangle(topRightCornerX, topRightCornerY, frontTopX, frontTopY, frontTopX, topCenterY);
+
+//top left face
+triangle(frontTopX, frontTopY, topLeftCornerX, topLeftCornerY, frontTopX, topCenterY);
+
+//bottom face
+triangle(frontLeftX, frontLeftY, frontRightX, frontRightY, frontTopX, bottomCenterY);
+
+//bottom left face
+triangle(frontLeftX, frontLeftY, frontTopX, bottomCenterY, topLeftCornerX, bottomLeftCornerY);
+
+//bottom right face
+triangle(frontRightX, frontRightY, frontTopX, bottomCenterY, topRightCornerX, bottomRightCornerY);
+
+//middle left
+triangle(frontLeftX, frontLeftY, topLeftCornerX, bottomLeftCornerY, topLeftCornerX, topLeftCornerY);
+
+//middle right
+triangle(frontRightX, frontRightY, topRightCornerX, bottomRightCornerY,topRightCornerX, topRightCornerY); 
+
+mouseClicked = function( ) {
+    
+    fill(255, 255, 255);
+
+    //main face
+    triangle(frontTopX, frontTopY, frontLeftX, frontLeftY, frontRightX, frontRightY);
+   
+    //dice roll
+    textAlign(CENTER, CENTER);
+    textSize(30);
+    fill(0, 0, 0);
+    var roll = round(random(1,20));
+    text(roll,centerX, centerY,length,length);
+};
+
+
+/* Next Steps:
+
+1. Define the center point
+2. Redefine the top center variable relative to Center
+3. add in colors, numbers, etc
+4. (finally, maybe, probably no time soon), animate */
+
